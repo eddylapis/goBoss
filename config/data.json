@@ -1,0 +1,37 @@
+{
+  "directory": "",
+  "user": "1xxx",
+  "password": "xxx",
+  "receiver": "619434176@qq.com",
+  "sender": "wuranxu@126.com",
+  "sender_pwd": "wuraxxx13",
+  "app_id": "10126357",
+  "api_key": "8Kfi2hoCKe4ZxxxqWtD70HDY2uB",
+  "secret_key": "XSqY3T4G8gGmxxxxSjFIkxTGHGtyR3RjdtE",
+  "black_list": [
+    "直聘小秘书", "直聘助手", "柯莱特", "纬创", "博彦", "东软", "中软", "文思海辉", "软通"
+  ],
+  "retry": 3,
+  "delay": 30,
+  "headless": true,
+  "auto_resume": true,
+  "login_url": "https://login.zhipin.com/?ka=header-login",
+  "host": "https://www.zhipin.com",
+  "login_json": "https://login.zhipin.com/login/account.json",
+  "msg_page": "https://www.zhipin.com/geek/new/userList.json?page=1",
+  "job_json": "https://www.zhipin.com/geek/new/boss.json",
+  "his_msg": "https://www.zhipin.com/geek/new/historyMsg.json",
+  "resume_url": "https://www.zhipin.com/geek/new/requestSendResume.json",
+  "web_timeout": 30,
+  "baidu_token_url": "https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials",
+  "baidu_ocr_url": "https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic",
+  "star_company": [
+    "百度", "阿里", "口碑", "天猫", "盒马", "UC", "淘宝", "蚂蚁", "支付宝", "今日头条", "字节跳动", "腾讯", "滴滴", "bili", "美团", 
+    "点评", "饿了么", "京东", "喜马拉雅", "盛大", "拼多多", "链家", "58", "沪江", "bili", "哔哩", "二三四五", "2345", "猫眼", 
+    "陆金所", "小红书", "七牛", "musical", "虎扑", "小度", "唯品会", "苏宁", "平安", "携程", "有赞", "哈罗", "运满满", "蔚来",
+    "巨人", "游族", "易果", "爱奇艺", "美味不用等", "号店", "360", "拍拍贷", "b站", "网易"
+  ],
+  "star_reply": "%s您好, 特别荣幸能收到大厂: %s的亲睐, 这是一条由直聘机器人自动发送的消息, 如果您需要我的简历, 请在回复中带上\"简历\"字样, 我的简历会随后发送给您~~~",
+  "black_reply": "您好, 暂时没有兴趣, 抱歉~",
+  "common_reply": "您好, 这是一条由直聘机器人自动发送的消息, 请等待我本人查看..."
+}

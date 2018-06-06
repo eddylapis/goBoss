@@ -1,0 +1,53 @@
+{
+  "登录页面": {
+    "用户名输入框": {
+      "method": "css selector",
+      "value": "input[name='account']"
+    },
+    "密码输入框": {
+      "method": "css selector",
+      "value": "input[name='password']"
+    },
+    "密码登录": {
+      "method": "css selector",
+      "value": "span.link-signin.cur"
+    },
+    "验证码": {
+      "method": "css selector",
+      "value": ".sign-pwd .row-code img"
+    },
+    "验证码输入框": {
+      "method": "name",
+      "value": "captcha"
+    },
+    "登录": {
+      "method": "css selector",
+      "value": "button[type='submit']"
+    },
+    "验证码错误": {
+      "method": "css selector",
+      "value": ".sign-form.sign-pwd .tip-error"
+    }
+  },
+  "首页": {
+    "消息": {
+      "method": "css selector",
+      "value": "a[ka='header-message']"
+    }
+  },
+  "消息页面": {
+    "消息列表": {
+      "method": "css selector",
+      "value": ".user-list ul li"
+    },
+    "Boss信息": {
+      "method": "css selector",
+      "value": ".chat-record .fl span"
+    },
+    "职位信息": {
+      "method": "css selector",
+      "value": ".chat-position-bar a span"
+    }
+  }
+
+}
