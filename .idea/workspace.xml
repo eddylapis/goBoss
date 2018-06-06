@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59b81535-e0f3-4a20-a3cb-59be5e2eb7fb" name="Default" comment="" />
+    <list default="true" id="59b81535-e0f3-4a20-a3cb-59be5e2eb7fb" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/config/conf.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/config/data.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/driver/checkdriver.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/main.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/page/element.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/page/launch.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/page/location.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/page/message.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/picture/.null" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/utils/request.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/verify/code.go" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,11 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="time.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="time.go" pinned="false" current-in-tab="false">
         <entry file="file:///usr/local/Cellar/go/1.10.1/libexec/src/time/time.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="619" column="5" lean-forward="false" selection-start-line="619" selection-start-column="5" selection-end-line="619" selection-end-column="5" />
+            <state relative-caret-position="327">
+              <caret line="625" column="0" lean-forward="false" selection-start-line="625" selection-start-column="0" selection-end-line="625" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/data.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -133,11 +157,6 @@
               <item name="goBoss" type="b2602c69:ProjectViewProjectNode" />
               <item name="goBoss" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="goBoss" type="b2602c69:ProjectViewProjectNode" />
-              <item name="goBoss" type="462c0819:PsiDirectoryNode" />
-              <item name="verify" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -564,14 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/Cellar/go/1.10.1/libexec/src/time/time.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="619" column="5" lean-forward="false" selection-start-line="619" selection-start-column="5" selection-end-line="619" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/Cellar/go/1.10.1/libexec/src/time/sleep.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
@@ -620,14 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -636,6 +639,22 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/go/1.10.1/libexec/src/time/time.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="625" column="0" lean-forward="false" selection-start-line="625" selection-start-column="0" selection-end-line="625" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
