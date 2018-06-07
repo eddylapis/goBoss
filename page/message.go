@@ -31,6 +31,7 @@ func (m *Message) Receive() {
 		if len(msgList) > 0 {
 			if msgList[0]["bossName"] == m.MsgList[0]["bossName"] && latest == m.MsgList[0]["latest"] {
 				// 没有新boss消息
+				fmt.Printf("您没有新消息哦\n最新职位为: %+v\n消息为: %s\n", msgList[0], latest)
 				m.ReFetch()
 				continue
 			} else {
@@ -170,14 +171,18 @@ func (m *Message) getInfo() map[string]string {
 	info := make(map[string]string)
 	bossEle, err := GetElement("消息页面", "Boss信息").GetElements(m.Session)
 	Assert(err)
-	info["bossName"], _ = bossEle[0].Text()
-	info["company"], _ = bossEle[1].Text()
-	info["bossTitle"], _ = bossEle[2].Text()
+	if len(bossEle) > 0 {
+		info["bossName"], _ = bossEle[0].Text()
+		info["company"], _ = bossEle[1].Text()
+		info["bossTitle"], _ = bossEle[2].Text()
+	}
 	jobEle, err := GetElement("消息页面", "职位信息").GetElements(m.Session)
 	Assert(err)
-	info["position"], _ = jobEle[1].Text()
-	info["money"], _ = jobEle[2].Text()
-	info["base"], _ = jobEle[3].Text()
+	if len(jobEle) > 0 {
+		info["position"], _ = jobEle[1].Text()
+		info["money"], _ = jobEle[2].Text()
+		info["base"], _ = jobEle[3].Text()
+	}
 	for k, v := range info {
 		info[k] = strings.Replace(v, " ", "", -1)
 	}
