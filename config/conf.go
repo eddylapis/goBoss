@@ -63,6 +63,8 @@ func GetCurrentDirectory() string {
 func init() {
 	Environ.Root, _ = filepath.Abs(filepath.Dir(os.Args[0]))
 	// Environ.Root = "/Users/wuranxu/go/src/goBoss"
+	// Environ.Root, _ = filepath.Abs(filepath.Dir(os.Args[0]))
+	//Environ.Root = "C:/Users/Woody/go/src/goBoss"
 	// 解析json
 	data, err := ioutil.ReadFile(fmt.Sprintf("%s/config/data.json", Environ.Root))
 	if err != nil {

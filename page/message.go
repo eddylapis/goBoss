@@ -26,7 +26,7 @@ func (m *Message) Listen() {
 
 func (m *Message) Receive() {
 	for {
-		fmt.Printf("[%s]---发送消息列表: %+v\n", time.Now().Format("2006-01-02 15:04:05"), m.ReplyList)
+		fmt.Printf("[%s]---正在获取消息列表\n", time.Now().Format("2006-01-02 15:04:05"))
 		msgList, latest := m.GetMsgList()
 		if len(msgList) > 0 {
 			if msgList[0]["bossName"] == m.MsgList[0]["bossName"] && latest == m.MsgList[0]["latest"] {
@@ -59,7 +59,7 @@ func (m *Message) Receive() {
 			m.ReFetch()
 			continue
 		}
-		// break //TODO 暂时只读一次
+		fmt.Printf("[%s]---发送消息列表: %+v\n", time.Now().Format("2006-01-02 15:04:05"), m.ReplyList)
 	}
 }
 
@@ -75,6 +75,9 @@ func (m *Message) SendMsg(companyType, bossName, company string) {
 		reply = cf.Config.CommonReply
 	}
 	err := dialog.SendKeys(m.Session, reply)
+	//args := make([]interface{}, 0)
+	//_, err := m.Session.ExecuteScript(fmt.Sprintf(`document.querySelector("%s").innerHTML="%s";`, dialog.Value, reply), args)
+	time.Sleep(4 * time.Second)
 	Assert(err)
 	err = GetElement("消息页面", "发送按钮").Click(m.Session)
 	if err != nil {
@@ -106,7 +109,7 @@ func (m *Message) SendInfo(bossName, company string) {
 	if err != nil {
 		fmt.Printf("遇到问题: 发送简历给公司: %s Boss: %s 出错!Error: %s\n", company, bossName, err.Error())
 	}
-	time.Sleep(1 * time.Second)
+	time.Sleep(2 * time.Second)
 	err = GetElement("消息页面", "发送简历确认").Click(m.Session)
 	Assert(err)
 	fmt.Printf("发送简历给公司: %s Boss: %s 成功!", company, bossName)
@@ -114,7 +117,7 @@ func (m *Message) SendInfo(bossName, company string) {
 
 func (m *Message) ReFetch() {
 	//没有新消息或者没有消息
-	fmt.Println("暂时没有新的消息")
+	fmt.Printf("[%s]---正在重新获取消息\n", time.Now().Format("2006-01-02 15:04:05"))
 	m.Session.Refresh()
 	time.Sleep(time.Duration(cf.Config.Delay) * time.Second) // 延迟Delay秒刷新
 }
@@ -137,7 +140,7 @@ func (m *Message) GetMsgList() ([]map[string]string, string) {
 		return []map[string]string{}, ""
 	}
 	msgList := make([]map[string]string, 0)
-	for i, ms := range messageList[:10] {
+	for i, ms := range messageList[:5] {
 		ms.Click()
 		// 输出前10条最新消息
 		time.Sleep(2 * time.Second)
@@ -164,6 +167,7 @@ func (m *Message) GetMsgList() ([]map[string]string, string) {
 	}
 	// 回到第一个对话
 	messageList[0].Click()
+	time.Sleep(2 * time.Second)
 	return msgList, lt
 }
 

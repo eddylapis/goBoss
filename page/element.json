@@ -58,7 +58,7 @@
     },
     "发送简历确认": {
       "method": "css selector",
-      "value": ".btn.btn-sure"
+      "value": ".sentence-popover.panel-resume .btn.btn-sure"
     },
     "消息对话框": {
       "method": "css selector",
