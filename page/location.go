@@ -50,11 +50,13 @@ func (e *Element) GetElements(s *dr.Session) ([]dr.WebElement, error) {
 
 func (e *Element) Click(s *dr.Session) error {
 	ele, err := e.GetEle(s)
-
-	// ele, err := e.WaitAndGet(time.Now(), s)
 	if err != nil {
 		return err
 	}
+	if status, e := ele.IsEnabled(); !status {
+		return e
+	}
+	// ele, err := e.WaitAndGet(time.Now(), s)
 	return ele.Click()
 }
 
@@ -106,7 +108,7 @@ func (e *Element) WaitAndGet(now time.Time, s *dr.Session) (dr.WebElement, error
 
 func TearDown(w *Login) {
 	// 截图screen
-	// defer w.Close()
+	defer w.Close()
 	pic, _ := w.Session.Screenshot()
 	filename := fmt.Sprintf("%s_error.png", time.Now().Format("2006_01_02_15_04_05"))
 	f, err := os.OpenFile(fmt.Sprintf("%s/picture/%s", config.Environ.Root, filename), os.O_WRONLY|os.O_TRUNC|os.O_CREATE, os.ModePerm)
@@ -114,7 +116,7 @@ func TearDown(w *Login) {
 		log.Printf("截图失败!Error: %s", err.Error())
 	}
 	f.Write(pic)
-	// defer f.Close()
+	defer f.Close()
 }
 
 func init() {

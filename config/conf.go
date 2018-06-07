@@ -40,6 +40,10 @@ type UserConfig struct {
 	BaiduTokenUrl string   `json:"baidu_token_url"`
 	BaiduOcrUrl   string   `json:"baidu_ocr_url"`
 	Headless      bool     `json:"headless"`
+	StarCompany   []string `json:"star_company"`
+	StarReply     string   `json:"star_reply"`
+	BlackReply    string   `json:"black_reply"`
+	CommonReply   string   `json:"common_reply"`
 }
 
 type Env struct {
@@ -57,8 +61,8 @@ func GetCurrentDirectory() string {
 }
 
 func init() {
-	//Environ.Root, _ = filepath.Abs(filepath.Dir(os.Args[0]))
-	 Environ.Root = "/Users/wuranxu/go/src/goBoss"
+	Environ.Root, _ = filepath.Abs(filepath.Dir(os.Args[0]))
+	// Environ.Root = "/Users/wuranxu/go/src/goBoss"
 	// 解析json
 	data, err := ioutil.ReadFile(fmt.Sprintf("%s/config/data.json", Environ.Root))
 	if err != nil {

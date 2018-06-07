@@ -18,8 +18,13 @@ func main() {
 	lg.Start()
 	lg.OpenBrowser()
 	lg.Login()
-	page.TearDown(lg)
-	msg := &page.Message{Driver: chromeDriver, Session: lg.Session}
+	// page.TearDown(lg)
+	reply := make(map[string]bool)
+	msgList := make([]map[string]string, 0)
+	msg := &page.Message{
+		Driver: chromeDriver, Session: lg.Session,
+		ReplyList: reply, MsgList: msgList,
+	}
 	msg.Listen()
 	defer page.TearDown(lg)
 }

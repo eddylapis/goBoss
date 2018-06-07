@@ -47,7 +47,28 @@
     "职位信息": {
       "method": "css selector",
       "value": ".chat-position-bar a span"
+    },
+    "聊天内容": {
+      "method": "css selector",
+      "value": ".chat-message .item-friend  .text span"
+    }, 
+    "发送简历": {
+      "method": "css selector",
+      "value": ".btn-resume"
+    },
+    "发送简历确认": {
+      "method": "css selector",
+      "value": ".btn.btn-sure"
+    },
+    "消息对话框": {
+      "method": "css selector",
+      "value": ".chat-input"
+    },
+    "发送按钮": {
+      "method": "css selector",
+      "value": ".btn.btn-send"
     }
+    
   }
 
 }

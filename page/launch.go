@@ -20,7 +20,7 @@ type Login struct {
 func Assert(err error) {
 	if err != nil {
 		log.Printf("Error: %s", err.Error())
-		panic("程序遇到问题啦, 请检查截图和日志...")
+		// panic("程序遇到问题啦, 请检查截图和日志...")
 	}
 }
 
@@ -121,10 +121,10 @@ func (w *Login) sendCode() {
 			// Assert(err)
 			if text == "" {
 				// 登录成功, break
-				log.Printf("恭喜您登录成功...")
+				fmt.Println("恭喜您登录成功...")
 				break
 			} else {
-				log.Println("验证码错误, 重新登录...")
+				fmt.Println("验证码错误, 重新登录...")
 				time.Sleep(3 * time.Second / 2)
 				GetElement("登录页面", "验证码").Click(w.Session)
 				continue
