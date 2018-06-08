@@ -12,7 +12,14 @@ import (
 
 func main() {
 	setLog()
-	chromeDriver := webdriver.NewChromeDriver("C:/Users/Woody/go/src/goBoss/driver/chromedriver.exe")
+	var driverName string
+	switch cf.Environ.Sys {
+	case "windows":
+		driverName = "chromedriver.exe"
+	default:
+		driverName = "chromedriver"
+	}
+	chromeDriver := webdriver.NewChromeDriver(fmt.Sprintf("%s/driver/%s", cf.Environ.Root, driverName))
 	lg := &page.Login{Driver: chromeDriver}
 
 	lg.Start()

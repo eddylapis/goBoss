@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 )
 
@@ -48,6 +49,7 @@ type UserConfig struct {
 
 type Env struct {
 	Root          string
+	Sys           string
 	BaiduTokenUrl string
 	BaiduCode     string
 }
@@ -65,6 +67,8 @@ func init() {
 	// Environ.Root = "/Users/wuranxu/go/src/goBoss"
 	// Environ.Root, _ = filepath.Abs(filepath.Dir(os.Args[0]))
 	//Environ.Root = "C:/Users/Woody/go/src/goBoss"
+	Environ.Sys = runtime.GOOS
+
 	// 解析json
 	data, err := ioutil.ReadFile(fmt.Sprintf("%s/config/data.json", Environ.Root))
 	if err != nil {
