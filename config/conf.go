@@ -18,7 +18,7 @@ var (
 
 const (
 	ChromeReg = `SOFTWARE\Google\Chrome\BLBeacon`
-	ChromeApp = `/Applications/Google\ Chrome.app/Contents/MacOS/`
+	ChromeApp = `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome`
 )
 
 type UserConfig struct {

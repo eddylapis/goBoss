@@ -1,24 +1,25 @@
 package driver
 
 import (
-	"goBoss/config"
 	"fmt"
+	"goBoss/config"
 
-	"log"
-	"strings"
-	"os/exec"
+	"archive/zip"
 	"bytes"
 	"goBoss/utils"
+	"io"
+	"log"
+	"os"
+	"os/exec"
 	"regexp"
 	"strconv"
-	"os"
-	"archive/zip"
-	"io"
+	"strings"
 )
 
 func SetDriver() {
 	ver := getChromeVer()
 	getDriver(ver)
+	execDriver()
 }
 
 func getDriver(ver string) {
@@ -50,11 +51,23 @@ func setDriverName(drVer string) {
 	}
 }
 
+func execDriver() {
+	// mac os
+	if config.Environ.Sys == "darwin" {
+		cmd := exec.Command("sh", "-c", fmt.Sprintf("chmod +x %s/driver/%s", config.Environ.Root,
+			config.Environ.DriverName))
+		err := cmd.Run()
+		if err != nil {
+			log.Fatal("生成chromedriver失败..Error: ", err.Error())
+		}
+	}
+}
+
 func downloadDriver(s string) {
 	log.Println("正在下载chromedriver驱动, 版本: ", s)
 	zipfileName := fmt.Sprintf("%s/driver/%s", config.Environ.Root, config.Environ.DriverZip)
 	req := utils.Request{
-		Url: fmt.Sprintf("%s%s/%s", config.Config.DriverUrl, s, config.Environ.DriverZip),
+		Url:    fmt.Sprintf("%s%s/%s", config.Config.DriverUrl, s, config.Environ.DriverZip),
 		Method: "GET",
 	}
 	res := req.Http()
@@ -90,6 +103,7 @@ func downloadDriver(s string) {
 			return
 		}
 	}
+
 }
 
 func checkDriver() (bool, error) {
@@ -171,7 +185,7 @@ func getWinChromeVer() string {
 }
 
 func getUnixChromeVer() string {
-	cmd := exec.Command(config.ChromeApp, "--version")
+	cmd := exec.Command("sh", "-c", fmt.Sprintf("%s --version", config.ChromeApp))
 	cmdOutput := &bytes.Buffer{}
 	cmd.Stdout = cmdOutput
 	err := cmd.Run()
@@ -181,5 +195,7 @@ func getUnixChromeVer() string {
 	ver := string(cmdOutput.Bytes())
 	verList := strings.Split(ver, ".")
 	ver = verList[0]
-	return ver
+	// fmt.Println(ver)
+	verList = strings.Split(ver, " ")
+	return verList[len(verList)-1]
 }
