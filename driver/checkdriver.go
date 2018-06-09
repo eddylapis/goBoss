@@ -3,7 +3,7 @@ package driver
 import (
 	"goBoss/config"
 	"fmt"
-	"github.com/golang/sys/windows/registry"
+
 	"log"
 	"strings"
 	"os/exec"
@@ -159,18 +159,15 @@ func getChromeVer() string {
 }
 
 func getWinChromeVer() string {
-	k, err := registry.OpenKey(registry.CURRENT_USER, config.ChromeReg, registry.ALL_ACCESS)
+	cmd := exec.Command(fmt.Sprintf("%s/getWinReg.exe", config.Environ.Root), "--version")
+	cmdOutput := &bytes.Buffer{}
+	cmd.Stdout = cmdOutput
+	err := cmd.Run()
 	if err != nil {
 		log.Fatal("获取Windows Chrome版本失败!请检查Chrome是否安装 Error: ", err)
 	}
-	s, _, err := k.GetStringValue("version")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer k.Close()
-	verList := strings.Split(s, ".")
-	ver := verList[0]
-	return ver
+	ver := string(cmdOutput.Bytes())
+	return strings.Replace(ver, "\n", "", -1)
 }
 
 func getUnixChromeVer() string {
