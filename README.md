@@ -45,9 +45,14 @@
 
 - 下载zip文件并解压
 
-### 修改json配置文件
+- 补充
 
-百度API文字识别(每日500次免费)，进入[官网](http://ai.baidu.com/tech/ocr/general)申请并配置。
+  如果本地go环境不全, 无法编译的胖友。可以进[release页面](https://github.com/wuranxu/goBoss/releases)下载goBoss.exe或goBoss
+  
+  
+### 修改json配置文件(config/data.json)
+
+百度API文字识别(每日500次免费)，进入[官网](http://ai.baidu.com/tech/ocr/general)申请并配置, 配置文件目前是可用的, 供测试使用。
 
 - app_id
 
@@ -64,6 +69,20 @@
 其他配置
 
 下面是我本人的配置, 注意, star_reply字段里的第一个%s代表对方姓名, 第二个%s代表对方公司名。如果去掉的话会报错(设计如此, 后续可修改), 黑名单我就不放出来了哈。O(∩_∩)O~
+
+- black_list
+
+  黑名单公司关键字
+
+- delay
+
+  刷新页面获取消息间隔时间(单位: 秒)
+  
+- headless
+
+  true为无头模式, false为展示正常模式
+  
+**其他配置项未使用或功能未完善**
 
 ```Javascript
 {  
@@ -82,33 +101,6 @@
 
 ```
 
-- 下载chromedriver
-
-  **chrome浏览器是使用本软件的前提, 我们需要chromedriver驱动**
-  
-  - 前往[淘宝镜像](https://npm.taobao.org/mirrors/chromedriver)
-
-  - 选择与你浏览器版本对应的驱动
-  
-  如我的版本是66, 确实很6哈哈哈哈...
-  
-  ![image.png](https://upload-images.jianshu.io/upload_images/6053915-912f39ffc4192811.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-  ![image.png](https://upload-images.jianshu.io/upload_images/6053915-253b1f19e4f8a76c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-  
-  - 找到适配版本和操作系统的浏览器驱动
-  
-    ![image.png](https://upload-images.jianshu.io/upload_images/6053915-ea88308400da03a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-    可以看到, 2.38和2.39都满足我的需求, 现在我选2.39.
-    
-    ![image.png](https://upload-images.jianshu.io/upload_images/6053915-94dcd77d5ac95fcf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-    
-    mac/windows选择自己的驱动
-    
-  - 将下载好的驱动放入driver目录里
-  
-
   - 运行
 
   之后就可以双击main.exe(windows)或者main挂起你的聊天机器人了。
@@ -123,7 +115,7 @@
   
 - 低薪过滤
 - 工作地点筛选
-- chromedriver自动下载
+- chromedriver自动下载(done)
 - 对方连续发送表情时会接收不到新消息的bug(因为表情不是文本, 在web页面属于icon)
 - 去除time.Sleep这种丑陋的等待元素方式
 
