@@ -6,26 +6,19 @@ import (
 	"goBoss/page"
 	"log"
 	"os"
-
+	"goBoss/driver"
 	"github.com/fedesog/webdriver"
 )
 
 func main() {
 	setLog()
-	var driverName string
-	switch cf.Environ.Sys {
-	case "windows":
-		driverName = "chromedriver.exe"
-	default:
-		driverName = "chromedriver"
-	}
-	chromeDriver := webdriver.NewChromeDriver(fmt.Sprintf("%s/driver/%s", cf.Environ.Root, driverName))
+	driver.SetDriver()  // 自动获取浏览器驱动
+	chromeDriver := webdriver.NewChromeDriver(fmt.Sprintf("%s/driver/%s", cf.Environ.Root, cf.Environ.DriverName))
 	lg := &page.Login{Driver: chromeDriver}
 
 	lg.Start()
 	lg.OpenBrowser()
 	lg.Login()
-	// page.TearDown(lg)
 	reply := make(map[string]bool)
 	msgList := make([]map[string]string, 0)
 	msg := &page.Message{

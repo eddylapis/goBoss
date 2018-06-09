@@ -16,6 +16,11 @@ var (
 	Environ Env
 )
 
+const (
+	ChromeReg = `SOFTWARE\Google\Chrome\BLBeacon`
+	ChromeApp = `/Applications/Google\ Chrome.app/Contents/MacOS/`
+)
+
 type UserConfig struct {
 	Directory     string   `json:"directory"`
 	User          string   `json:"user"`
@@ -30,6 +35,8 @@ type UserConfig struct {
 	Retry         int      `json:"retry"`
 	Delay         int      `json:"delay"`
 	AutoResume    bool     `json:"auto_resume"`
+	AutoDownload  bool     `json:"auto_download"`
+	DriverUrl     string   `json:"driver_url"`
 	LoginURL      string   `json:"login_url"`
 	Host          string   `json:"host"`
 	LoginJSON     string   `json:"login_json"`
@@ -50,6 +57,8 @@ type UserConfig struct {
 type Env struct {
 	Root          string
 	Sys           string
+	DriverName    string
+	DriverZip     string
 	BaiduTokenUrl string
 	BaiduCode     string
 }
@@ -63,7 +72,7 @@ func GetCurrentDirectory() string {
 }
 
 func init() {
-	Environ.Root, _ = filepath.Abs(filepath.Dir(os.Args[0]))
+	Environ.Root = GetCurrentDirectory()
 	// Environ.Root = "/Users/wuranxu/go/src/goBoss"
 	// Environ.Root, _ = filepath.Abs(filepath.Dir(os.Args[0]))
 	//Environ.Root = "C:/Users/Woody/go/src/goBoss"

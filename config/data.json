@@ -15,6 +15,8 @@
   "delay": 5,
   "headless": true,
   "auto_resume": true,
+  "auto_download": true,
+  "driver_url": "https://npm.taobao.org/mirrors/chromedriver/",
   "login_url": "https://login.zhipin.com/?ka=header-login",
   "host": "https://www.zhipin.com",
   "login_json": "https://login.zhipin.com/login/account.json",
@@ -26,8 +28,8 @@
   "baidu_token_url": "https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials",
   "baidu_ocr_url": "https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic",
   "star_company": [
-    "百度", "阿里", "口碑", "天猫", "盒马", "UC", "淘宝", "蚂蚁", "支付宝", "今日头条", "字节跳动", "腾讯", "滴滴", "bili", "美团", 
-    "点评", "饿了么", "京东", "喜马拉雅", "盛大", "拼多多", "链家", "58", "沪江", "bili", "哔哩", "二三四五", "2345", "猫眼", 
+    "百度", "阿里", "口碑", "天猫", "盒马", "UC", "淘宝", "蚂蚁", "支付宝", "今日头条", "字节跳动", "腾讯", "滴滴", "bili", "美团",
+    "点评", "饿了么", "京东", "喜马拉雅", "盛大", "拼多多", "链家", "58", "沪江", "bili", "哔哩", "二三四五", "2345", "猫眼",
     "陆金所", "小红书", "七牛", "musical", "虎扑", "小度", "唯品会", "苏宁", "平安", "携程", "有赞", "哈罗", "运满满", "蔚来",
     "巨人", "游族", "易果", "爱奇艺", "美味不用等", "号店", "360", "拍拍贷", "b站", "网易"
   ],
